@@ -1,60 +1,37 @@
 <template>
   <v-app>
-    <v-app-bar
-      app
-      color="primary"
-      dark
-    >
-      <div class="d-flex align-center">
-        <v-img
-          alt="Vuetify Logo"
-          class="shrink mr-2"
-          contain
-          src="https://cdn.vuetifyjs.com/images/logos/vuetify-logo-dark.png"
-          transition="scale-transition"
-          width="40"
-        />
-
-        <v-img
-          alt="Vuetify Name"
-          class="shrink mt-1 hidden-sm-and-down"
-          contain
-          min-width="100"
-          src="https://cdn.vuetifyjs.com/images/logos/vuetify-name-dark.png"
-          width="100"
-        />
-      </div>
-
-      <v-spacer></v-spacer>
-
-      <v-btn
-        href="https://github.com/vuetifyjs/vuetify/releases/latest"
-        target="_blank"
-        text
-      >
-        <span class="mr-2">Latest Release</span>
-        <v-icon>mdi-open-in-new</v-icon>
-      </v-btn>
-    </v-app-bar>
-
-    <v-main>
-      <HelloWorld/>
-    </v-main>
+      <NavBar style="position:fixed;"/>
+      <br><br>
+      <Profile />
+      <!-- <NavTab v-bind:tablist=tabs /> -->
+      <!-- <UsualPost /> -->
+      <!-- <UsualPost /> -->
+      <!-- <NavTab v-bind:tablist=settingsTabs /> -->
+      <!-- <EditProfile /> -->
+      <!-- <SettingsElement /> -->
+      <!-- <ContactUs /> -->
   </v-app>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld';
+import NavBar from './components/NavBar';
+import Profile from './views/Profile';
+// import NavTab from './components/NavTab';
+// import EditProfile from './components/EditProfile'
+//  import UsualPost from './components/UsualPost';
+// import SettingsElement from './components/SettingsElement'
+// import ContactUs from './components/ContactUs'
 
 export default {
   name: 'App',
-
   components: {
-    HelloWorld,
+    // UsualPost,SettingsElement,EditProfile,SettingsElement
+    // NavTab,ContactUs
+    Profile,NavBar
   },
-
   data: () => ({
-    //
+    tabs:["All","Posts","Seminars","Courses","Projects"],
+    settingsTabs:["Profile","Security","FAQ","Contact Us"]
   }),
 };
 </script>

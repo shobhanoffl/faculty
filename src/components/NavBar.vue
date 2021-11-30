@@ -1,0 +1,84 @@
+<template>
+  <div class="menu-component">
+    <nav>
+      <ul class="menu-bar" @mouseleave="toShow = false">
+        <li @mouseenter="toShow = true"><v-icon>mdi-menu</v-icon></li>
+        <li :style="{display:[toShow ? 'Block' : 'None']}"><v-icon>mdi-home</v-icon></li>
+        <li :style="{display:[toShow ? 'Block' : 'None']}"><v-icon>mdi-account</v-icon></li>
+        <li :style="{display:[toShow ? 'Block' : 'None']}"><v-icon>mdi-cog</v-icon></li>
+      </ul>
+    </nav>
+  </div>
+</template>
+
+<script>
+export default{
+  data () {
+    return{
+      toShow : false
+    }
+  }
+}
+</script>
+<style scoped>
+*{
+  position: absolute;
+  z-index: 2;
+}
+ul{
+  flex-direction: column;
+}
+.menu-component{
+  left: 45px;
+}
+nav {
+  margin: 0;
+  display: flex;
+  justify-content: center;
+}
+
+.menu-bar {
+  border-radius: 36px;
+  /* height: -webkit-fit-content;
+  height: -moz-fit-content; */
+  height:max-content;
+  width: 55px;
+  display: inline-flex;
+  background: linear-gradient(to right, #00d2ff, #3a7bd5);
+  -webkit-backdrop-filter: blur(10px);
+  backdrop-filter: blur(10px);
+  align-items: center;
+  padding: 0 10px;
+  margin: 20px 0 0 0;
+}
+.menu-bar li {
+  list-style: none;
+  color: white;
+  font-family: sans-serif;
+  font-weight: bold;
+  padding: 12px 16px;
+  margin: 0 8px;
+  position: relative;
+  cursor: pointer;
+  white-space: nowrap;
+}
+.menu-bar li::before {
+  content: " ";
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  z-index: -1;
+  transition: 0.2s;
+  border-radius: 25px;
+}
+.menu-bar li:hover {
+  color: #236fda;
+}
+.menu-bar li:hover::before {
+  background: linear-gradient(to bottom, #fafffe, #f1f1f1);
+  box-shadow: 1px 1px 6px 0.5px rgba(0, 0, 0, 0.5);
+  transform: scale(1.2);
+}
+</style>
