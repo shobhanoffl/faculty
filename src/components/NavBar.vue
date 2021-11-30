@@ -1,11 +1,11 @@
 <template>
   <div class="menu-component">
     <nav>
-      <ul class="menu-bar" @mouseleave="toShow = false">
-        <li @mouseenter="toShow = true"><v-icon>mdi-menu</v-icon></li>
-        <li :style="{display:[toShow ? 'Block' : 'None']}"><v-icon>mdi-home</v-icon></li>
-        <li :style="{display:[toShow ? 'Block' : 'None']}"><v-icon>mdi-account</v-icon></li>
-        <li :style="{display:[toShow ? 'Block' : 'None']}"><v-icon>mdi-cog</v-icon></li>
+      <ul class="menu-bar">
+        <li @click="toShow = !toShow"><v-icon>mdi-menu</v-icon></li>
+        <li @click="toShow = false" :style="{display:[toShow ? 'Block' : 'None']}"><v-icon>mdi-home</v-icon></li>
+        <li @click="toShow = false" :style="{display:[toShow ? 'Block' : 'None']}"><v-icon>mdi-account</v-icon></li>
+        <li @click="toShow = false" :style="{display:[toShow ? 'Block' : 'None']}"><v-icon>mdi-cog</v-icon></li>
       </ul>
     </nav>
   </div>
@@ -17,6 +17,9 @@ export default{
     return{
       toShow : false
     }
+  },
+  methods(){
+    console.log(toShow);
   }
 }
 </script>
@@ -82,3 +85,10 @@ nav {
   transform: scale(1.2);
 }
 </style>
+
+<!-- <ul class="menu-bar" @mouseleave="toShow = false">
+        <li @mouseenter="toShow = true"><v-icon>mdi-menu</v-icon></li>
+        <li :style="{display:[toShow ? 'Block' : 'None']}"><v-icon>mdi-home</v-icon></li>
+        <li :style="{display:[toShow ? 'Block' : 'None']}"><v-icon>mdi-account</v-icon></li>
+        <li :style="{display:[toShow ? 'Block' : 'None']}"><v-icon>mdi-cog</v-icon></li>
+      </ul> -->
